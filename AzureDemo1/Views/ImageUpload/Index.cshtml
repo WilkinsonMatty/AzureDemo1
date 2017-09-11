@@ -1,0 +1,13 @@
+﻿@model AzureDemo1.Models.UploadViewModel
+
+
+<h2>Upload Form</h2>
+
+@using (Html.BeginForm("UploadImage", "ImageUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="uploadFile" />
+    <input type="submit" value="Upload"/>
+
+    @Model.message
+}
+

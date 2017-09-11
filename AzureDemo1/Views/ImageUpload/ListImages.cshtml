@@ -1,0 +1,33 @@
+﻿@model List<ImageEntity>
+@{
+    ViewBag.Title = "ListImages";
+}
+
+<h2>ListImages</h2>
+There are @Model.Count images.
+
+<table>
+
+    <tr>
+        <td>
+            Original File Name
+        </td>
+        <td>
+            Download Watermarked Image Link
+        </td>
+    </tr>
+    @foreach (var image in Model)
+    {
+        <tr>
+            <td>
+                @image.OriginalFileName
+            </td>
+            <td>
+                @Html.ActionLink("Download Watermarked Image", "GetImage", "ImageUpload",new { targetBlob = image.WatermarkedImageBlobName },null);
+                
+            </td>
+            
+            
+        </tr>
+    }
+</table>
